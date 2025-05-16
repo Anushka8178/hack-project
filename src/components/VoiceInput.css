@@ -1,0 +1,243 @@
+.voice-input-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.voice-input-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.voice-input-header h2 {
+  color: #1f2937;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.voice-input-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.voice-input-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.visualizer-wrapper {
+  position: relative;
+  width: min(300px, 80vw);
+  height: min(300px, 80vw);
+  margin: 0 auto;
+}
+
+.voice-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border: none;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  z-index: 10;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+}
+
+.voice-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.voice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voice-button i {
+  font-size: 2rem;
+  color: #2563eb;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.voice-button i.pulse {
+  animation: iconPulse 1.5s infinite;
+  color: #dc2626;
+}
+
+.error-message {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+}
+
+.transcript-container {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.transcript-container h3 {
+  color: #1f2937;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.transcript-container p {
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.saving-indicator {
+  color: #2563eb;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saving-indicator::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 2px solid #2563eb;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .voice-input-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .voice-input-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .voice-input-header p {
+    font-size: 1rem;
+  }
+
+  .transcript-container {
+    padding: 1.5rem;
+  }
+}
+
+.location-warning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-warning i {
+  font-size: 1.2rem;
+}
+
+.location-section {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.location-info {
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  color: #2e7d32;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.location-info i {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.location-details .address {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.location-details .coordinates {
+  font-size: 0.85rem;
+  color: #1b5e20;
+  opacity: 0.8;
+}
+
+.map-preview {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+} 
